@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/andrew/Development/qtSample/build",
-  "command": "/usr/local/bin/g++  -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets  -g   -fPIC -std=gnu++17 -o CMakeFiles/HelloWorld.dir/main.cpp.o -c /home/andrew/Development/qtSample/main.cpp",
-  "file": "/home/andrew/Development/qtSample/main.cpp"
-}
-]

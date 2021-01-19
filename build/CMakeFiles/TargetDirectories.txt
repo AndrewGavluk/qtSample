@@ -1,3 +1,0 @@
-/home/andrew/Development/qtSample/build/CMakeFiles/rebuild_cache.dir
-/home/andrew/Development/qtSample/build/CMakeFiles/edit_cache.dir
-/home/andrew/Development/qtSample/build/CMakeFiles/HelloWorld.dir
