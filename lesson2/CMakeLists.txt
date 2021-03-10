@@ -1,5 +1,5 @@
     cmake_minimum_required(VERSION 3.8)
-    project(HelloWorld)
+    project(Lesson2)
      
     set(CMAKE_CXX_STANDARD 17)
      
@@ -10,7 +10,7 @@
     find_package(Qt5Widgets REQUIRED)
      
     set(SOURCE_FILES main.cpp)
-    add_executable(HelloWorld ${SOURCE_FILES})
+    add_executable(Lesson2 ${SOURCE_FILES})
      
     # specify which libraries to connect
     target_link_libraries(${PROJECT_NAME} Qt5::Core)
