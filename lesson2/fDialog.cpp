@@ -24,5 +24,40 @@ FDialog::FDialog(QWidget * parent) : QDialog(parent){
     closeButton = new QPushButton{tr("&close")};
     QObject::connect(closeButton, SIGNAL (Clicked()), 
                     this, SLOT(close()));
+                
+    QHBoxLayout *topLeftLayout = new QHBoxLayout{};
+    topLeftLayout->addWidget(label);
+    topLeftLayout->addWidget(lineEdit);
 
+    QHBoxLayout *leftLayout = new QHBoxLayout{};
+    leftLayout->addLayout(topLeftLayout);
+    leftLayout->addWidget(caseCheckBox);
+    leftLayout->addWidget(backwardCheckBox);
+
+    QHBoxLayout *rightLayout = new QHBoxLayout{};
+    rightLayout->addWidget(findButton);
+    rightLayout->addWidget(closeButton);
+    rightLayout->addStretch();
+
+    QHBoxLayout *mainLayout = new QHBoxLayout{};
+    mainLayout->addLayout(leftLayout);
+    mainLayout->addLayout(rightLayout);
+    
+    setLayout(mainLayout);
+    setWindowTitle("Find");
+    setFixedHeight(sizeHint().height());
+}   
+
+void FDialog::findClicked(){
+    std::wstring text = lineEdit->text().toStdWString();
+    Qt::CaseSensitivity cs = caseCheckBox->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive;
+    
+    if(backwardCheckBox->isChecked())
+        emit findPrevious(text, cs);
+    else
+        emit findNext(text, cs);
+}
+
+void FDialog::enableFindButton(const std::wstring& wstr){
+    findButton->setEnabled(!wstr.empty());
 }

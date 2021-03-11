@@ -9,14 +9,14 @@ class FDialog : public QDialog
 
 public:
     FDialog(QWidget *parent = nullptr);
-
+    virtual ~FDialog(){}
 signals:
-    void findNext(const std::string&, Qt::CaseSensitivity);
-    void findPrevious(const std::string&, Qt::CaseSensitivity);
+    void findNext(const std::wstring&, Qt::CaseSensitivity);
+    void findPrevious(const std::wstring&, Qt::CaseSensitivity);
 
 private slots:
     void findClicked();
-    void enableFindButton (const std::string&);
+    void enableFindButton (const std::wstring&);
 
 private:
     QLabel *label;
@@ -25,3 +25,4 @@ private:
     QPushButton *findButton, *closeButton;
 
 };
+

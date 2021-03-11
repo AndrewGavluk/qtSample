@@ -48,6 +48,7 @@
         "bit": "cpp",
         "compare": "cpp",
         "concepts": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "qapplication": "cpp"
     }
 }
