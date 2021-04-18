@@ -1,3 +1,4 @@
+    set(CMAKE_CXX_STANDARD 17)
     # Include a library search using find_package() 
     # via REQUIRED, specify that libraries are required
     find_package(Qt5Core REQUIRED)

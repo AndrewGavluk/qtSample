@@ -1,9 +1,14 @@
 #pragma once
 
+#include <memory>
+#include <vector>
+
 #include <cstdint>
 
 #include <QDialog>
 #include <QtWidgets>
+
+#include "vMainMenu.hpp"
 
 enum MainMenuButt : uint8_t
 {
@@ -12,7 +17,22 @@ enum MainMenuButt : uint8_t
     Network,
     Options,
     About,
-    Exit
+    Exit,
+
+    OP_Computer,
+    OP_Human,
+
+    NW_CreateServer,
+    NW_ConnectToServer,
+    
+    OPT_Gamplay,
+    OPT_Video,
+    OPT_Audio,
+
+    A_About,
+
+    E_Yes,
+    E_No
 };
 
 class MainMenu : public QDialog
@@ -24,16 +44,24 @@ public:
     virtual ~MainMenu();
 
 private slots:
-    void onClick(const MainMenuButt&);
+    void showMainMenu();
+    void showOPMenu();
+    void showNWMenu();
+    void showOPTMenu();
+    void showAboutInfo();
+    
 
 private:
+    void showExit();
 
-    inline void addButton(QPushButton*, const MainMenuButt&, const QString& );
+    void slotExecute(void(MainMenu::*fn)());
+    void addButton(const MainMenuButt&, const QString&, void(MainMenu::*fn)());
+    void removeLayout();
+    void updateLayout(const QString&);
 
+    //std::vector <std::shared_ptr <QPushButton> > m_Buttons;
     QVBoxLayout *m_Layout;
-    QPushButton *m_OnePlayer, 
-                *m_Networking,
-                *m_Options,
-                *m_About,
-                *m_Exit;
+    MainMenuButt* m_State;
+
+    bool startFlag;
 };

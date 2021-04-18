@@ -1,10 +1,6 @@
 #include "fDialog.h"
 
 FDialog::FDialog(QWidget * parent) : QDialog(parent){
-    /*QLabel *label;
-    QLineEdit *lineEdit;
-    QCheckBox *caseCheckBox, *backwardCheckBox;
-    QPushButton *findButton, *closeButton;*/
     label = new QLabel{tr("Find &what")};
     
     lineEdit = new QLineEdit{};
@@ -21,7 +17,7 @@ FDialog::FDialog(QWidget * parent) : QDialog(parent){
     QObject::connect(findButton, SIGNAL (Clicked()), 
                     this, SLOT(findClicked(const std::string &)));
 
-    closeButton = new QPushButton{tr("&close")};
+    closeButton = new QPushButton{tr("&Close")};
     QObject::connect(closeButton, SIGNAL (Clicked()), 
                     this, SLOT(close()));
                 
@@ -29,12 +25,12 @@ FDialog::FDialog(QWidget * parent) : QDialog(parent){
     topLeftLayout->addWidget(label);
     topLeftLayout->addWidget(lineEdit);
 
-    QHBoxLayout *leftLayout = new QHBoxLayout{};
+    QVBoxLayout *leftLayout = new QVBoxLayout{};
     leftLayout->addLayout(topLeftLayout);
     leftLayout->addWidget(caseCheckBox);
     leftLayout->addWidget(backwardCheckBox);
 
-    QHBoxLayout *rightLayout = new QHBoxLayout{};
+    QVBoxLayout *rightLayout = new QVBoxLayout{};
     rightLayout->addWidget(findButton);
     rightLayout->addWidget(closeButton);
     rightLayout->addStretch();

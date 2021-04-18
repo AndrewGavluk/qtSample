@@ -17,7 +17,6 @@
     target_link_libraries(fdialog Qt5::Gui)
     target_link_libraries(fdialog Qt5::Widgets)
 
-
     set(SOURCE_FILES main.cpp)
     add_executable(Lesson2 ${SOURCE_FILES})
      
